@@ -1,10 +1,8 @@
 if [ -f "results2.txt" ]
 then
-        echo "hi"
         rm results2.txt
         touch results2.txt
 else
-        echo "hellooo"
         touch results2.txt
 fi
 
