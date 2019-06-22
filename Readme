@@ -1,2 +1,15 @@
+OBJECTIVE: The objective of this project is to gain understanding of the basic Linux commands, shell scripting and c programming and their applications.
+
+What does this project do?
+This program writes strings of different sizes to different offsets of a file and performs verification in different ways using c and shell programming.
+
+How is the entire project organised?
+The entire project is divided into 2 directories dg_test1 and dg_test2. Folder dg_test1 contains problem 1-5 and dg_test2 contains the last problem.
+Program 1 in dg_test1 writes random strings of random sizes to random offsets of a file called newfile.txt and writes metadata to another file called newfile2.txt. 
+After writing to this file, comes Program 2 that performs the first verification in c language. This program reads the metadata file newfile2.txt, line by line, extracts data from newfile.txt simultaneously and verifies whether the right string is present at the right offset. It enters the results of this verification to a file called results2.txt. 
+Program 3 performs the same kind of verification as program 2. The only difference is that it is written in shell programming rather than c language. The results of this verification is written into a file called results3.txt.
+Program 4 divides newfile2.txt into 4 parts and performs verification on these 4 parts separately. It enters the results of verification into results.txt.
+Program 5 is in dg_test2 directory. It takes file arguments and calls program 1 on both files. So, this program basically writes random strings to random offsets of these 2 files. Then it performs program 2, program 3 and program 4 verification on the file arguments and prints out the files that have a Failure.
+
+To get started:
 Open the directory dg_test1 and open index.html on your browser. Follow the instructions depending upon the program that you want to execute.
-Note: dg_test1 has files to execute program 1-4 and dg_test2 is only meant to execute the last program.
