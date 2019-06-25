@@ -1,4 +1,5 @@
 file=newfile2.txt
+#Taking lines $1 to $2 of newfile2.txt and reading it.
 sed -n "$1,$2p" $file | 
 while read line
 do
