@@ -1,3 +1,4 @@
+# Empties the files before writing to the file again.
 if [ -f "newfile2.txt" ]
 then
         rm newfile2.txt
@@ -27,8 +28,12 @@ then
 else
         touch $2
 fi
+
+# Compling and running ttest.cc
 g++ ttest.cc
 ./a.out $1 $2
+
+# Displaying files that have failures in verification.
 file=totalres.txt
 flag=0
 echo "The files that have failures are: "

@@ -4,9 +4,16 @@
 #include "fstream"
 #include "cstring"
 
-using namespace std;
+#define GIGABYTE 1073741825
+#define MAX_SIZE 20
+#define MIN_NUM 32
+#define MIN_SIZE 1
 
+
+using namespace std;
+// Passing arguments
 int main(int argc,char *argv[]){
+    //Opening file to record which files have failures
     std::fstream total_r;
     total_r.open("totalres.txt",std::ios::out | std::ios::in);
     for (int k=1;k<argc;k++){
@@ -18,13 +25,14 @@ int main(int argc,char *argv[]){
         string filename(argv[k]);
         string command="touch";
         system((command + " " + filename).c_str()); 
+        // srand() function ensures different random offsets are generated each time.
         srand(time(0));
         int i=0;
 
         while (i<=200){
-            int num=rand() % 69 + 32;
-            int offset=rand() % 1073741825;
-            int rsize=rand() % 20 + 1;
+            int num=rand() % 69 + MIN_NUM;
+            int offset=rand() % GIGABYTE;
+            int rsize=rand() % MAX_SIZE + MIN_SIZE;
             if (char(num)=='\\' || char(num)==' ' || char(num)=='?'){
                 continue;
             }
@@ -32,9 +40,13 @@ int main(int argc,char *argv[]){
             for (int j=0;j<rsize;j++){
                 rstr[j]=char(num);
             }
+            // Seeking random offset in one file argument.
             fp.seekp(offset,std::ios::beg);
+
             int act=fp.tellp();
+            // Writing to one file argument.
             fp<<rstr;
+            // Writing to newfile2.txt ( metadata file )
             fp2<<rstr[0]<<" "<<rsize<<" "<<act<<'\n';
             i++;
         
@@ -43,10 +55,18 @@ int main(int argc,char *argv[]){
         fp2.close();
 
    //Verification Code
+
+   // Opening file to write results of first verification.
    std::fstream result;
    result.open("results3.txt",std::ios::out);
+
+   // Opening one file argument in reading mode.
    fp.open(argv[k],std::ios::in);
+
+   // Opening newfile2.txt ( metadata file ) in reading mode.
    fp2.open("newfile2.txt",std::ios::in);
+
+   // Looping through each line of newfile2.txt.
    char line[40];
    while (fp2.getline(line,40,'\n')){
        result<<line<<'\n';
@@ -143,6 +163,7 @@ int main(int argc,char *argv[]){
        }
       result<<'\n'<<"-----------------------------------"<<'\n';
   }
+        // Calling test3.sh and test4.sh.
         string file2(argv[k]);
         string first="./test3.sh newfile2.txt";
         system((first + " " + file2).c_str());
