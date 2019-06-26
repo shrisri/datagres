@@ -8,6 +8,8 @@
 #define MAX_SIZE 20
 #define MIN_NUM 32
 #define MIN_SIZE 1
+#define NO_DATA 200
+#define RAND 69
 
 using namespace std;
 
@@ -22,8 +24,8 @@ int main(){
         srand(time(0));
         int i=0;
         //Loop generates random num, offset and rsize 200 times.
-        while (i<=200){
-            int num=rand() % 69 + MIN_NUM;
+        while (i<=NO_DATA){
+            int num=rand() % RAND + MIN_NUM;
             int offset=rand() % GIGABYTE;
             int rsize=rand() % MAX_SIZE + MIN_SIZE;
             if (char(num)=='\\' || char(num)==' ' || char(num)=='?'){
