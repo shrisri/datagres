@@ -1,4 +1,4 @@
-
+# Empties results.txt before writing to it.
 if [ -f "results.txt" ]
 then
         rm results.txt

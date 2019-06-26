@@ -48,7 +48,10 @@ do
     
      fi
 done < $file
+# If none of files have failures, prints NONE
 if [ $flag == 0 ]
 then
         echo "NONE"
 fi
+
+echo "Verified successfully."

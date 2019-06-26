@@ -8,8 +8,8 @@
 #define MAX_SIZE 20
 #define MIN_NUM 32
 #define MIN_SIZE 1
-
-
+#define NO_DATA 200
+#define RAND 69
 using namespace std;
 // Passing arguments
 int main(int argc,char *argv[]){
@@ -29,8 +29,8 @@ int main(int argc,char *argv[]){
         srand(time(0));
         int i=0;
 
-        while (i<=200){
-            int num=rand() % 69 + MIN_NUM;
+        while (i<=NO_DATA){
+            int num=rand() % RAND + MIN_NUM;
             int offset=rand() % GIGABYTE;
             int rsize=rand() % MAX_SIZE + MIN_SIZE;
             if (char(num)=='\\' || char(num)==' ' || char(num)=='?'){
@@ -69,6 +69,7 @@ int main(int argc,char *argv[]){
    // Looping through each line of newfile2.txt.
    char line[40];
    while (fp2.getline(line,40,'\n')){
+       // Writing into results3.txt
        result<<line<<'\n';
        if (line[0]==' '){
            int countsp=0;
@@ -100,12 +101,16 @@ int main(int argc,char *argv[]){
              
            int o;
            int s;
+           // Convert offset and size from string to integer
            sscanf(off,"%d",&o);
            sscanf(size,"%d",&s);
+
+           // Seeking offset in argv[k]
            fp.seekg(o,std::ios::beg);
            int flag=1;
            for (int k=0;k<s;k++){
                 char ch;
+                // Reading a character from argv[k]
                 fp>>ch;
                 if (ch!=rstr[0]){
                       result<<"Failure"<<'\n';
