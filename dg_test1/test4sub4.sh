@@ -8,6 +8,7 @@ do
         size=`echo $name | awk '{print $2}'`
         off=`echo $name | awk '{print $3}'`
         echo $c,$size,$off >> results.txt
+        # Reading string at offset of newfile.txt
         rstr=$(dd if=newfile.txt skip=$off ibs=1 count=$size)
         firstc=${c:0:1}
         flag=0
