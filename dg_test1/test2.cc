@@ -1,3 +1,13 @@
+/*
+ * Objective: Verifies that right strings are at the right offsets of file newfile.txt using c language.
+ *
+ * Method: Program iterates through newfile2.txt (metadata), extracts character, size, offset and then goes to
+ * specific offset in newfile.txt for verification.
+ * 
+ * Author: Shriya S
+ *
+ */
+
 #include "iostream"
 #include "cstring"
 #include "cstdio"
@@ -12,12 +22,17 @@ int main(){
     std::fstream results;
     //Opening file which stores strings at different offsets.
     fp.open("newfile.txt");
+
     //Opening metadata file.
     fp2.open("newfile2.txt");
+
     char line[40];
+    //Opening file results2.txt in writing mode to enter results after verification.
     results.open("results2.txt",std::ios::out);
+
     //Looping through lines of newfile2.txt.
     while (fp2.getline(line,40,'\n')){
+
         //Exception when the random character generated in a space.
         if (line[0]==' '){
             int countsp=0;
@@ -28,6 +43,7 @@ int main(){
             char rstr[20]="";
             int si=0;
             int oi=0;
+
             //Extracting char, size, offset from newfile2.txt
             while(line[i]==' '){
                 countstr++;
@@ -59,6 +75,7 @@ int main(){
 
             //Seeking offset from beginning of newfile.txt.
             fp.seekg(o,std::ios::beg);
+
             int flag=1;
             for (int k=0;k<s;k++){
                 char ch;
@@ -86,6 +103,7 @@ int main(){
         int wi=0;
         int wi2=0;
         int si=0;
+
         //Extracting char, size, offset from newfile2.txt.
         for (int i=0;i<strlen(line);i++){
                 if (line[i]==' '){
@@ -115,6 +133,7 @@ int main(){
             int flag=1;
             for (int k=0;k<s;k++){
                 char ch;
+
                 //Reading each character from newfile.txt at offset.
                 fp>>ch;
 

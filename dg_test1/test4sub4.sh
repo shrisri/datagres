@@ -1,4 +1,13 @@
+# Objective: Verifies that right strings are at the right offsets of newfile.txt using shell script.
+# 
+# Method: Program iterates over 153-201 lines of newfile2.txt (metadata), extracts character, size, offset and 
+# then goes to specific offset in newfile.txt for verification.
+#
+# Author: Shriya S
+#
+
 file=newfile2.txt
+
 # Taking lines $1 to $2 of newfile2.txt and reading it.
 sed -n "$1,$2p" $file | 
 while read line
@@ -8,6 +17,7 @@ do
         size=`echo $name | awk '{print $2}'`
         off=`echo $name | awk '{print $3}'`
         echo $c,$size,$off >> results.txt
+
         # Reading string at offset of newfile.txt
         rstr=$(dd if=newfile.txt skip=$off ibs=1 count=$size)
         firstc=${c:0:1}
