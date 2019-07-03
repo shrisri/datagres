@@ -1,3 +1,11 @@
+# Objective: Verifies that right strings are at the right offsets of newfile.txt using shell script.
+# 
+# Method: Program iterates over 102-152 lines of newfile2.txt (metadata), extracts character, size, offset and 
+# then goes to specific offset in file argument for verification.
+#
+# Author: Shriya S
+#
+
 file=$3
 sed -n "$1,$2p" $file | 
 while read line

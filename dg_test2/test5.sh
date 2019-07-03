@@ -1,3 +1,10 @@
+# Objective: Take file arguments, write to all the files and then perform all kinds of verification on the 
+# files and finally print all the files that have a failure in verification.
+#
+# Author: Shriya S
+#
+
+
 # Empties the files before writing to the file again.
 if [ -f "newfile2.txt" ]
 then

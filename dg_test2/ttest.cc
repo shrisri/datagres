@@ -1,3 +1,12 @@
+/*
+ * Objective: Generates 200 random strings of random sizes and writes them to random offsets of file arguments  * as well as writes the metadata in the form of character,size,offset into file newfile2.txt.
+ *
+ * Author: Shriya S
+ *
+ */
+ 
+
+
 #include "cstdio"
 #include "iostream"
 #include "cstdlib"

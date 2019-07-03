@@ -1,3 +1,11 @@
+# Objective: Verifies that right strings are at the right offsets of file newfile.txt using shell script.
+# 
+# Method: Program iterates through newfile2.txt (metadata), extracts character, size, offset and then goes to
+# specific offset in file argument for verification.
+#
+# Author: Shriya S
+#
+
 # Empties results2.txt before writing to it
 if [ -f "results2.txt" ]
 then
