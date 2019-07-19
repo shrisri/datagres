@@ -1,0 +1,34 @@
+README
+
+OBJECTIVE:
+The objective of this project is to gain understanding of the basic Linux commands, shell scripting and c programming and their applications.
+
+DESCRIPTION:
+This program writes strings of different sizes to different offsets of a file and performs verification in different ways using c and shell programming.
+
+NOTE:
+Ignore directories dg_test1 and dg_test2. Open directory dg_test3. This directory has the whole project with all changes made. Instructions needed to compile and execute are below. If any more information is required, refer to html pages.
+
+INSTRUCTIONS TO GET STARTED:
+
+Program1:
+To compile- make Program1
+To run- ./Master.sh 1
+Program 1 in writes random strings of random sizes to random offsets of a file called newfile.txt and writes metadata to another file called newfile2.txt.
+
+Program2:
+To compile- make Program2
+To run- ./Master.sh 2
+Program 2 performs the first verification in C language. This program reads the metadata file newfile2.txt, line by line, extracts data from newfile.txt simultaneously and verifies whether the right string is present at the right offset. It enters the results of this verification to a file called results2.txt.
+
+Program3:
+To run- ./Master.sh 3
+Program 3 performs the same kind of verification as Program 2. Only, it is written using shell scripting rather than C language. The results of this verification is written into a file called results3.txt.
+
+Program4:
+To run- ./Master.sh 4
+Program 4 divides newfile2.txt into 4 parts and performs verification on these 4 parts separately. It enters the results of verification into results.txt.
+
+Program5:
+To run- ./Master.sh 5 file1 file2
+It takes file arguments and calls Program 1 on both files.Then it automatically runs Program 2, Program 3 and Program 4 verification on the file arguments and prints out the files that have a Failure (if any). 
