@@ -23,7 +23,7 @@ case $1 in
                         echo "Wrong number of arguments. Please try again."
                         exit 1
                 fi
-                ./shellscrpt/Program3.sh
+                ./shellscrpt/program3.sh
                 ;;
         "4")
                 if [ "$#" -ne 1 ]
@@ -31,7 +31,7 @@ case $1 in
                         echo "Wrong number of Arguments. Please try again."
                         exit 1
                 fi
-                ./shellscrpt/Program4.sh
+                ./shellscrpt/program4.sh
                 ;;
         "5")
                 if [ "$#" -ne 3 ]
@@ -39,7 +39,7 @@ case $1 in
                         echo "Wrong number of Arguments. Please try again "
                         exit 1
                 fi
-                ./shellscrpt/Program5.sh $2 $3
+                ./shellscrpt/program5.sh $2 $3
                 ;;
          *)
                 echo "Wrong Argument given. Try again."
