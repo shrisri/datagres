@@ -7,7 +7,7 @@ DESCRIPTION:
 This program writes strings of different sizes to different offsets of a file and performs verification in different ways using c and shell programming.
 
 NOTE:
-Ignore directories dg_test1 and dg_test2. Open directory dg_test3. This directory has the whole project with all changes made. Instructions needed to compile and execute are below. If any more information is required, refer to html pages.
+Open directory dg_test3. This directory has the whole project with all changes made. Instructions needed to compile and execute are below. If any more information is required, refer to html pages.
 
 INSTRUCTIONS TO GET STARTED:
 
